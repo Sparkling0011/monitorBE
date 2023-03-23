@@ -11,6 +11,10 @@ app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms")
 );
 
+app.get("/", (res) => {
+  res.send("success");
+});
+
 router(app);
 
 app.listen(PORT, async () => {
