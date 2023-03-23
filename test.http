@@ -1,0 +1,13 @@
+# POST  http://127.0.0.1:3000/api/user/register
+# Content-Type: application/x-www-form-urlencoded
+
+# username=xings
+# &email=172525642511@qq.com
+# &password=18912904011s111
+
+
+POST  http://127.0.0.1:3000/api/user/login
+Content-Type: application/x-www-form-urlencoded
+
+auth=172525642511@qq.com
+&password=18912904011s111
