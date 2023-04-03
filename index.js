@@ -14,7 +14,7 @@ app.use(
 
 app.use(addCodeToResponse);
 app.get("/", (_req, res) => {
-  res.status(200).json({ msg: 111 });
+  res.status(200).json({ msg: success });
 });
 
 router(app);
