@@ -21,7 +21,7 @@ module.exports = {
           expiresIn: "1h",
         }
       );
-      res.status(200).json({ msg: "登录成功", token });
+      res.status(200).json({ message: "登录成功", result: { token } });
     } else {
       res.status(400).send("密码错误");
     }
