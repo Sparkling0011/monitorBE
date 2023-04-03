@@ -16,10 +16,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  // confirmPassword: {
-  //   type: String,
-  //   required: true,
-  // },
   createAt: {
     type: Date,
     required: true,
