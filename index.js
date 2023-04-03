@@ -1,9 +1,10 @@
 const express = require("express");
 const morgan = require("morgan");
+
 const router = require("./router");
 const { main } = require("./utils/connect");
-
 const { PORT } = require("./config");
+const { addCodeToResponse } = require("./middleware/addCodeToResponse");
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
@@ -11,8 +12,9 @@ app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms")
 );
 
-app.get("/", (res) => {
-  res.send("success");
+app.use(addCodeToResponse);
+app.get("/", (_req, res) => {
+  res.status(200).json({ msg: 111 });
 });
 
 router(app);
