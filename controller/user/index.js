@@ -46,8 +46,8 @@ module.exports = {
     }
     const isValid = await vertifyPassword(password, user.password)
     if (isValid) {
-      const token = generateToken(user.username, password)
-      res.status(200).json({ token });
+      const token = generateToken(user.username, user._id, user.email)
+      res.status(200).json({ token, user: { _id: user._id, username: user.username } });
     } else {
       res.status(400).send("密码错误");
     }

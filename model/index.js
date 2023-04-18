@@ -1,7 +1,7 @@
 const userModel = require("./userModel");
-const appModel = require("./projectModel")
+const projectModel = require("./projectModel")
 
 module.exports = {
   userModel,
-  appModel
+  projectModel
 };

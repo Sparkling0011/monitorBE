@@ -1,8 +1,9 @@
 const { Router } = require("express")
-const { createProject } = require("../controller/project/project")
+const { createProject, getProjectList } = require("../controller/project")
 
 const router = Router()
 
 router.get("/create", createProject)
+router.get("/list", getProjectList)
 
 module.exports = router

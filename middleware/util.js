@@ -1,3 +1,4 @@
+const Logger = require("../library/logger")
 exports.addCodeToResponse = (_req, res, next) => {
   res.sendJson = res.json;
 
@@ -12,3 +13,9 @@ exports.addCodeToResponse = (_req, res, next) => {
 
   next();
 };
+
+exports.errorHandler = (err, _req, res, next) => {
+  Logger.error(err)
+  res.status(500).json({ error: "Internal Server Error" });
+}
+

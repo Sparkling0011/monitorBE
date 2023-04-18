@@ -14,9 +14,9 @@ exports.parseToken = function (token) {
 
 }
 
-exports.generateToken = function (username, password) {
+exports.generateToken = function (username, uid, email) {
   const token = jwt.sign(
-    { username, password },
+    { username, uid, email },
     process.env.ACCESS_TOKEN_SECRET,
     {
       expiresIn: "1h",

@@ -1,15 +1,27 @@
 const mongoose = require("mongoose")
 const { Schema, model } = mongoose
 
-const appSchema = new Schema({
+const projectSchema = new Schema({
+  pid: {
+    type: String,
+    required: true,
+    unique: true
+  },
   pname: {
     type: String,
     required: true
   },
-  pid: {
+  uid: {
     type: String,
-    require: true,
+    required: true
   },
+  // owner: {
+  //   id: {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'User'
+  //   },
+  //   name: String
+  // },
   createAt: {
     type: Date,
     default: Date.now(),
@@ -17,4 +29,4 @@ const appSchema = new Schema({
   },
 })
 
-module.exports = model("app", appSchema)
+module.exports = model("Project", projectSchema)
