@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production pm2 restart monitor"
+    "start": "export NODE_ENV=production && pm2 restart monitor",
+    "dev": "export NODE_ENV=development && nodemon index.js"
   },
   "author": "",
   "license": "ISC",
