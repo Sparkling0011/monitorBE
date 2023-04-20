@@ -1,8 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors")
-import fs from "fs"
-import https from "https"
+const fs = require("fs")
+const https = require("https")
 const bodyParser = require('body-parser');
 
 const router = require("./router");
