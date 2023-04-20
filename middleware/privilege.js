@@ -1,7 +1,9 @@
 const { parseToken } = require("../library/auth")
+const _ = require("lodash")
 
 exports.authenticateToken = (req, res, next) => {
-  if (req.path === "/api/user/login") {
+  if (!req.path.startsWith("/api")) return res.status(400).json({ message: "错误的请求" })
+  if (req.path === "/api/user/login" || req.path === "/api/user/register") {
     return next()
   }
   if (req.path.startsWith("/api/log")) {
@@ -25,10 +27,10 @@ exports.authenticateToken = (req, res, next) => {
 };
 
 exports.appendProjectInfo = function (req, res, next) {
-  let path = req.path
-  if (_.startsWith(path, '/project')) {
-    let projectId = parseInt(_.get(path.split('/'), [2], 0))
-    _.set(req, ['fee', 'project', 'projectId'], projectId)
+  let path = req.body
+  if (_.startsWith(path, '/api/log')) {
+    let projectId = parseInt(_.get(path, ["common", "pid"], 0))
+    _.set(req, ['pid'], projectId)
   }
   next()
 } 

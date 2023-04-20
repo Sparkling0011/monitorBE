@@ -10,7 +10,7 @@ const { main } = require("./library/mongodb");
 const config = require("./config/app");
 const Logger = require("./library/logger")
 const { addCodeToResponse, errorHandler } = require("./middleware/util");
-const { authenticateToken } = require("./middleware/privilege")
+const { authenticateToken, appendProjectInfo } = require("./middleware/privilege")
 
 const options = {
   cert: fs.readFileSync(
@@ -34,6 +34,7 @@ function startup() {
 
   app.use(addCodeToResponse);
   app.use(authenticateToken)
+  app.use(appendProjectInfo)
   app.get("/", (_req, res) => {
     res.status(200).json({ msg: "success" });
   });
