@@ -34,7 +34,6 @@ function startup() {
       .then(() => Logger.log("数据库连接成功"))
       .catch((err) => Logger.error(`连接失败,${err}`));
     Logger.log(`${config.name} listening on port ${config.port}`)
-    // console.log(`Server started on http://127.0.0.1:${PORT}`);
   });
 }
 
