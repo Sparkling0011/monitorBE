@@ -4,7 +4,7 @@ const env = require("./env")
 
 const production = {
   name: '监控平台生产环境',
-  port: 8000,
+  port: 443,
   proxy: false,
   absoluteLogPath: path.resolve(__dirname, '../', 'log')
 }
@@ -14,7 +14,7 @@ const production = {
 // 开发环境配置
 const development = {
   name: '监控平台开发环境',
-  port: 443,
+  port: 8000,
   proxy: false,
   absoluteLogPath: path.resolve(__dirname, '../', 'log')
 }
