@@ -1,6 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors")
+import fs from "fs"
+import https from "https"
 const bodyParser = require('body-parser');
 
 const router = require("./router");
@@ -9,6 +11,16 @@ const config = require("./config/app");
 const Logger = require("./library/logger")
 const { addCodeToResponse, errorHandler } = require("./middleware/util");
 const { authenticateToken } = require("./middleware/privilege")
+
+const options = {
+  cert: fs.readFileSync(
+    "/etc/letsencrypt/live/www.nebulanimble.site/fullchain.pem"
+  ),
+  key: fs.readFileSync(
+    "/etc/letsencrypt/live/www.nebulanimble.site/privkey.pem"
+  ),
+};
+
 function startup() {
   const app = express();
 
@@ -29,7 +41,7 @@ function startup() {
   router(app);
   app.use(errorHandler)
 
-  app.listen(config.port, async () => {
+  https.createServer(options, app).listen(config.port, async () => {
     await main()
       .then(() => Logger.log("数据库连接成功"))
       .catch((err) => Logger.error(`连接失败,${err}`));
