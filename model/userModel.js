@@ -16,6 +16,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  avator: {
+    type: String,
+    default: "",
+  },
   createAt: {
     type: Date,
     required: true,

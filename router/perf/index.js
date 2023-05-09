@@ -1,11 +1,11 @@
 const { Router } = require("express");
 
 const {
-  getPerfListInRange
+  getLoadingDataInRange
 } = require("../../controller/perf");
 
 const router = Router();
 
-// router.get("/list", getPerfListInRange);
+router.get("/loading", getLoadingDataInRange);
 
 module.exports = router;

@@ -19,7 +19,7 @@ exports.generateToken = function (username, uid, email) {
     { username, uid, email },
     process.env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: "1h",
+      expiresIn: "5h",
     }
   );
   return token

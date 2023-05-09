@@ -1,23 +1,13 @@
 const { Router } = require("express");
 
 const {
-  getErrorDistribution,
-  getErrorLogList,
-  getUrlDistribution,
-  getErrorNameList,
-  getGeographyDistribution,
+  getRuntimeErrorList,
+  getIntervalCountInRange
 } = require("../../controller/runtime");
 
 const router = Router();
 
-router.get("/distribution/summary", getErrorDistribution);
-
-router.get("/log/list", getErrorLogList);
-
-router.get("/distribution/url", getUrlDistribution);
-
-router.get("/distribution/error_name", getErrorNameList);
-
-router.get("/distribution/geography", getGeographyDistribution);
+router.get("/list", getRuntimeErrorList);
+router.get("/intervalCount", getIntervalCountInRange)
 
 module.exports = router;

@@ -15,13 +15,6 @@ const projectSchema = new Schema({
     type: String,
     required: true
   },
-  // owner: {
-  //   id: {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'User'
-  //   },
-  //   name: String
-  // },
   createAt: {
     type: Date,
     default: Date.now(),

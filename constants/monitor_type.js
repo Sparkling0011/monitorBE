@@ -5,9 +5,14 @@ module.exports = {
   PERFORMANCE: 4,
 
   ERROR_TYPE_MAP: {
-    '1': 'Request_ERROR',
-    '2': 'Resource_ERROR',
-    '3': 'JS_ERROR',
-    '4': "PERFORMANCE"
-  }
+    1: "Request_ERROR",
+    2: "Resource_ERROR",
+    3: "JS_ERROR",
+    4: "PERFORMANCE",
+  },
+  script: 2,
+  style: 3,
+  image: 4,
+  audio: 5,
+  video: 6,
 };
