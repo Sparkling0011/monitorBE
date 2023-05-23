@@ -5,8 +5,6 @@ const { insertInto } = require('../../model/parse/runtime')
 class RuntimeParse extends ParseBase {
   /**
    * 判断该条记录是不是monitor记录
-   * @param {Object} record
-   * @return {Boolean}
    */
   isLegalRecord(record) {
     return true
